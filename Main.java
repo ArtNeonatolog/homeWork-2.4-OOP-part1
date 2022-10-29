@@ -4,6 +4,7 @@ import transport.Trucks;
 
 public class Main {
     public static void main(String[] args) {
+ <<<<<<< homeWork-2.4-OOP-part1.git
         System.out.println();
         System.out.println("Задание 1");
 
@@ -91,6 +92,9 @@ public class Main {
         System.out.println();
 
 
+
+     >>>>>>> main
+             System.out.println("Hello world");
     }
 
 }
