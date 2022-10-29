@@ -2,10 +2,10 @@ package transport;
 
 public interface Competing {
 
-    void isPitStop ();
+    void PitStop ();
 
     void theBestTimeOfLap ();
 
-    int maxSpeed ();
+    String maxSpeed ();
 
 }
