@@ -1,3 +1,6 @@
+import drivers.DriverB;
+import drivers.DriverC;
+import drivers.DriverD;
 import transport.Bus;
 import transport.Cars;
 import transport.Trucks;
@@ -47,7 +50,7 @@ public class Main {
            System.out.println(car4.maxSpeed().toString());
            System.out.println();
 
-           Bus bus1 = new Bus("Камаз", "x3456", 4.0f);
+           Bus bus1 = new Bus("Нефаз", "x3456", 4.0f);
            System.out.println(bus1.toString());
            bus1.informationOfTheBus();
            bus1.startMoving();
@@ -127,5 +130,22 @@ public class Main {
            System.out.println(truck4.maxSpeed().toString());
            System.out.println();
 
+           System.out.println("Задание 4");
+           DriverB driverB = new DriverB("Пирожков Антон Сергеевич", true, 6);
+           System.out.println(driverB.toString());
+           driverB.informationOfDriverCars(car1);
+           driverB.driver_DrivingCars(car1);
+           System.out.println();
+
+           DriverC driverC = new DriverC("Матроскин Петр Арсланович", true, 9);
+           System.out.println(driverC.toString());
+           driverC.informationOfDriverTrucks(truck2);
+           driverC.driver_DrivingTrucks(truck2);
+           System.out.println();
+
+           DriverD driverD = new DriverD("Петросян Лаврентий Геннадьевич", false, 12);
+           System.out.println(driverD.toString());
+           driverD.informationOfDriverBus(bus3);
+           driverD.driver_DrivingBus(bus3);
     }
 }
