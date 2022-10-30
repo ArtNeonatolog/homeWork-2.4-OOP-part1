@@ -2,7 +2,7 @@ package transport;
 
 import java.util.Objects;
 
-public abstract class Car extends Transport {
+public abstract class PassengerCar extends Transport {
 
     private float engineVolume;
   //  private String transmission;
@@ -10,7 +10,7 @@ public abstract class Car extends Transport {
    // private String registrationNumber;
    // private int numberOfSeats;
 
-    public Car(String brand, String model, float engineVolume) {
+    public PassengerCar(String brand, String model, float engineVolume) {
         super(brand, model);
         if (engineVolume < 0.5) {
             this.engineVolume = 1.5f;
@@ -35,10 +35,10 @@ public abstract class Car extends Transport {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Car)) return false;
+        if (!(o instanceof PassengerCar)) return false;
         if (!super.equals(o)) return false;
-        Car car = (Car) o;
-        return Float.compare(car.engineVolume, engineVolume) == 0;
+        PassengerCar passengerCar = (PassengerCar) o;
+        return Float.compare(passengerCar.engineVolume, engineVolume) == 0;
     }
 
     @Override
@@ -48,7 +48,7 @@ public abstract class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "PassengerCar{" +
                 "engineVolume=" + engineVolume +
                 "} " + super.toString();
     }

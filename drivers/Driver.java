@@ -4,7 +4,7 @@ import transport.*;
 
 import java.util.Objects;
 
-public abstract class Driver <A extends Car> {
+public abstract class Driver <A extends PassengerCar> {
     private final String name;
 
     protected boolean driverLicense;
@@ -53,29 +53,48 @@ public abstract class Driver <A extends Car> {
 
     public abstract void refuel();
     public void informationOfDriverCars(Cars car) {
+        if (this.driverLicense == true) {
+            System.out.println("Имя водителя легкового автомобиля - " + getName() + ", водительский стаж - " + this.getDrivingExperience() + " лет, имеет действующие права категории В");
+        } else {
+            System.out.println("Водитель не может быть допущен к управлению автомобилем, т.к. нет водительских прав");
+        }
 
     }
-
-    public void driver_DrivingCars(Cars car) {
-
+    public void driverDrivingCars(Cars car) {
+        if (this.driverLicense == true) {
+            System.out.println("Водитель - " + this.getName() + " управляет автомобилем " + car.getBrand() + " " + car.getModel() + " и будет участвовать в заезде");
+        }else{
+            System.out.println("Водитель легкового автомобиля - " + getName() + " не допущен к соревнованиям, т.к. отсутствуют или просрочены водительские права");
+        }
     }
-
     public void informationOfDriverTrucks(Trucks truck) {
-
+        if (this.driverLicense == true) {
+            System.out.println("Имя водителя грузового автомобиля - " + getName() + ", водительский стаж - " + getDrivingExperience() + " лет, имеет действующие права категории С");
+        }else{
+            System.out.println("Водитель не может быть допущен к управлению автомобилем, т.к. нет водительских прав");
+        }
     }
-
-    public void driver_DrivingTrucks(Trucks truck) {
-
+    public void driverDrivingTrucks(Trucks truck) {
+        if (this.driverLicense == true) {
+            System.out.println("Водитель - " + getName() + " управляет автомобилем " + truck.getBrand() + " " + truck.getModel() + " и будет участвовать в заезде");
+        }else{
+            System.out.println("Водитель грузового автомобиля - " + getName() + " не допущен к соревнованиям, т.к. отсутствуют или просрочены водительские права");
+        }
     }
-
     public void informationOfDriverBus(Bus bus) {
-
+        if (this.driverLicense == true) {
+            System.out.println("Имя водителя автобуса - " + getName() + ", водительский стаж - " + getDrivingExperience() + " лет, имеет действующие права категории D");
+        }else{
+            System.out.println("Водитель не может быть допущен к управлению автомобилем, т.к. нет водительских прав");
+        }
     }
-
-    public void driver_DrivingBus(Bus bus) {
-
+    public void driverDrivingBus(Bus bus) {
+        if (this.driverLicense == true) {
+            System.out.println("Водитель - " + getName() + " управляет автобусом " + bus.getBrand() + " " + bus.getModel() + " и будет участвовать в заезде");
+        }else{
+            System.out.println("Водитель автобуса - " + getName() + " не допущен к соревнованиям, т.к. отсутствуют или просрочены водительские права");
+        }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

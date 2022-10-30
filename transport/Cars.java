@@ -1,8 +1,8 @@
 package transport;
 
-import java.sql.Driver;
+import java.util.Objects;
 
-public class Cars extends Car implements Competing {
+public class Cars extends PassengerCar implements Competing {
 
     public Cars(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
@@ -37,5 +37,26 @@ public class Cars extends Car implements Competing {
     @Override
     public String maxSpeed() {
         return "Максимальная скорость легковой машины в гоночных соревнованиях - " + MAX_SPEED+ " км/ч.";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cars)) return false;
+        if (!super.equals(o)) return false;
+        Cars cars = (Cars) o;
+        return MAX_SPEED == cars.MAX_SPEED;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), MAX_SPEED);
+    }
+
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "MAX_SPEED=" + MAX_SPEED +
+                "} " + super.toString();
     }
 }

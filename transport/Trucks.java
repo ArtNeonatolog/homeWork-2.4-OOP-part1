@@ -1,6 +1,8 @@
 package transport;
 
-public class Trucks extends Car implements Competing {
+import java.util.Objects;
+
+public class Trucks extends PassengerCar implements Competing {
     public Trucks(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -37,5 +39,26 @@ public class Trucks extends Car implements Competing {
     @Override
     public String maxSpeed() {
         return "Максимальная скорость грузовой машины в гоночных соревнованиях - " + MAX_SPEED + " км/ч.";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Trucks)) return false;
+        if (!super.equals(o)) return false;
+        Trucks trucks = (Trucks) o;
+        return MAX_SPEED == trucks.MAX_SPEED;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), MAX_SPEED);
+    }
+
+    @Override
+    public String toString() {
+        return "Trucks{" +
+                "MAX_SPEED=" + MAX_SPEED +
+                "} " + super.toString();
     }
 }
