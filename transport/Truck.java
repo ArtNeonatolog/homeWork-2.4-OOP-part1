@@ -2,8 +2,8 @@ package transport;
 
 import java.util.Objects;
 
-public class Trucks extends PassengerCar implements Competing {
-    public Trucks(String brand, String model, float engineVolume) {
+public class Truck extends PassengerCar implements Competing {
+    public Truck(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
     }
 
@@ -44,10 +44,10 @@ public class Trucks extends PassengerCar implements Competing {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Trucks)) return false;
+        if (!(o instanceof Truck)) return false;
         if (!super.equals(o)) return false;
-        Trucks trucks = (Trucks) o;
-        return MAX_SPEED == trucks.MAX_SPEED;
+        Truck truck = (Truck) o;
+        return MAX_SPEED == truck.MAX_SPEED;
     }
 
     @Override

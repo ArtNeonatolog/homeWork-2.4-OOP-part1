@@ -2,7 +2,6 @@ package drivers;
 
 import transport.Bus;
 import transport.PassengerCar;
-import transport.Trucks;
 
 public class DriverD extends Driver {
 

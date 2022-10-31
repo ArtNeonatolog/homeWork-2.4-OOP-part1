@@ -1,22 +1,22 @@
 package drivers;
 
-import transport.Cars;
+import transport.Car;
 import transport.PassengerCar;
 
 public class DriverB extends Driver {
 
-    private final Cars transport;
+    private final Car transport;
 
     public DriverB(String name, boolean driverLicense, int drivingExperience, PassengerCar transport) {
         super(name, driverLicense, drivingExperience, transport);
         if (transport != null) {
-            this.transport = (Cars) transport;
-        } else {
-            this.transport = (Cars) transport ("Бугатти", "Вейрон", 8.0f);
+            this.transport = (Car) transport;
+        }else {
+            this.transport = (Car) transport ("Бугатти", "Вейрон", 8.0f);
         }
     }
 
-    public Cars getTransport() {
+    public Car getTransport() {
         return transport;
     }
 

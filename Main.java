@@ -1,16 +1,17 @@
+import com.sun.jdi.connect.Transport;
 import drivers.DriverB;
 import drivers.DriverC;
 import drivers.DriverD;
 import transport.Bus;
-import transport.Cars;
-import transport.Trucks;
+import transport.Car;
+import transport.Truck;
 
 public class Main {
     public static void main(String[] args) {
            System.out.println();
            System.out.println("Задание 1");
 
-           Cars car1 = new Cars("Porsche", "911", 3.5f);
+           Car car1 = new Car("Porsche", "911", 3.5f);
            System.out.println(car1.toString());
            car1.informationOfTheCar();
            car1.startMoving();
@@ -20,7 +21,7 @@ public class Main {
            System.out.println(car1.maxSpeed().toString());
            System.out.println();
 
-           Cars car2 = new Cars("Лада", "Калина", 2.0f);
+           Car car2 = new Car("Лада", "Калина", 2.0f);
            System.out.println(car2.toString());
            car2.informationOfTheCar();
            car2.startMoving();
@@ -30,7 +31,7 @@ public class Main {
            System.out.println(car2.maxSpeed().toString());
            System.out.println();
 
-           Cars car3 = new Cars("Бугатти", "Вейрон", 8.0f);
+           Car car3 = new Car("Бугатти", "Вейрон", 8.0f);
            System.out.println(car3.toString());
            car3.informationOfTheCar();
            car3.startMoving();
@@ -40,7 +41,7 @@ public class Main {
            System.out.println(car3.maxSpeed().toString());
            System.out.println();
 
-           Cars car4 = new Cars("Феррари", "458", 4.5f);
+           Car car4 = new Car("Феррари", "458", 4.5f);
            System.out.println(car4.toString());
            car4.informationOfTheCar();
            car4.startMoving();
@@ -90,7 +91,7 @@ public class Main {
            System.out.println(bus4.maxSpeed().toString());
            System.out.println();
 
-           Trucks truck1 = new Trucks("Камаз", "4326", 18.0f);
+           Truck truck1 = new Truck("Камаз", "4326", 18.0f);
            System.out.println(truck1.toString());
            truck1.informationOfTheTrucks();
            truck1.startMoving();
@@ -100,7 +101,7 @@ public class Main {
            System.out.println(truck1.maxSpeed().toString());
            System.out.println();
 
-           Trucks truck2 = new Trucks("Вольво", "см65", 16.0f);
+           Truck truck2 = new Truck("Вольво", "см65", 16.0f);
            System.out.println(truck2.toString());
            truck2.informationOfTheTrucks();
            truck2.startMoving();
@@ -110,7 +111,7 @@ public class Main {
            System.out.println(truck2.maxSpeed().toString());
            System.out.println();
 
-           Trucks truck3 = new Trucks("Рено", "348", 15.0f);
+           Truck truck3 = new Truck("Рено", "348", 15.0f);
            System.out.println(truck3.toString());
            truck3.informationOfTheTrucks();
            truck3.startMoving();
@@ -120,7 +121,7 @@ public class Main {
            System.out.println(truck3.maxSpeed().toString());
            System.out.println();
 
-           Trucks truck4 = new Trucks("Форд", "654", 17.5f);
+           Truck truck4 = new Truck("Форд", "654", 17.5f);
            System.out.println(truck4.toString());
            truck4.informationOfTheTrucks();
            truck4.startMoving();
@@ -131,7 +132,7 @@ public class Main {
            System.out.println();
 
            System.out.println("Задание 4");
-           DriverB driverB = new DriverB("Пирожков Антон Сергеевич", true, 6, car2);
+           DriverB driverB = new DriverB("Пирожков Антон Сергеевич", true, 6, car1);
            System.out.println(driverB.toString());
            driverB.informationOfDriver();
            driverB.driverDriving();
