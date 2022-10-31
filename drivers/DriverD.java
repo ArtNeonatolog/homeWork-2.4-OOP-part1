@@ -1,11 +1,20 @@
 package drivers;
 
 import transport.Bus;
+import transport.PassengerCar;
+import transport.Trucks;
 
 public class DriverD extends Driver {
 
-    public DriverD(String name, boolean driverLicense, int drivingExperience) {
-        super(name, driverLicense, drivingExperience);
+    private final Bus transport;
+
+    public DriverD(String name, boolean driverLicense, int drivingExperience, PassengerCar transport) {
+        super(name, driverLicense, drivingExperience, transport);
+        if (transport != null) {
+            this.transport = (Bus) transport;
+        } else {
+            this.transport = (Bus) transport ("Икарус", "BH657", 10.0f);
+        }
     }
 
     @Override
@@ -24,6 +33,9 @@ public class DriverD extends Driver {
 
     @Override
     public String toString() {
-        return "DriverD{} " + super.toString();
+        return "DriverD{" +
+                "transport=" + transport +
+                ", driverLicense=" + driverLicense +
+                "} " + super.toString();
     }
 }

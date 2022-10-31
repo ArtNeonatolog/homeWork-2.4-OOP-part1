@@ -1,14 +1,25 @@
 package drivers;
 
 import transport.Cars;
+import transport.PassengerCar;
 
 public class DriverB extends Driver {
 
-    public DriverB(String name, boolean driverLicense, int drivingExperience) {
-        super(name, driverLicense, drivingExperience);
+    private final Cars transport;
+
+    public DriverB(String name, boolean driverLicense, int drivingExperience, PassengerCar transport) {
+        super(name, driverLicense, drivingExperience, transport);
+        if (transport != null) {
+            this.transport = (Cars) transport;
+        } else {
+            this.transport = (Cars) transport ("Бугатти", "Вейрон", 8.0f);
+        }
     }
 
-    @Override
+    public Cars getTransport() {
+        return transport;
+    }
+
     public void startMoving() {
         System.out.println("Вставляю ключ в замок зажигания, поворачиваю, удерживаю сцепление, нажимаю педаль газа, начинаю движение");
     }
@@ -25,8 +36,9 @@ public class DriverB extends Driver {
 
     @Override
     public String toString() {
-        return "drivers.DriverB{} " + super.toString();
+        return "DriverB{" +
+                "transport=" + transport +
+                ", driverLicense=" + driverLicense +
+                "} " + super.toString();
     }
-
-
 }

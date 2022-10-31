@@ -11,7 +11,9 @@ public abstract class Driver <A extends PassengerCar> {
 
     private int drivingExperience;
 
-    public Driver(String name, boolean driverLicense, int drivingExperience) {
+    private final A transport;
+
+    public Driver(String name, boolean driverLicense, int drivingExperience, A transport) {
         if (name != null && !name.isEmpty() && !name.isBlank()) {
             this.name = name;
         } else {
@@ -23,6 +25,15 @@ public abstract class Driver <A extends PassengerCar> {
         } else {
             this.drivingExperience = drivingExperience;
         }
+        if (transport != null) {
+            this.transport = transport;
+        } else {
+            this.transport = transport ("Бугатти", "Вейрон", 8.0f);
+        }
+    }
+
+    public A transport(String бренд, String модель, float объем_двигателя) {
+        return transport;
     }
 
     public String getName() {
@@ -41,6 +52,10 @@ public abstract class Driver <A extends PassengerCar> {
         this.driverLicense = driverLicense;
     }
 
+    public A getTransport() {
+        return transport;
+    }
+
     public void setDrivingExperience(int drivingExperience) {
         if (drivingExperience < 0) {
             this.drivingExperience = 0;
@@ -52,68 +67,41 @@ public abstract class Driver <A extends PassengerCar> {
     public abstract void finishMoving();
 
     public abstract void refuel();
-    public void informationOfDriverCars(Cars car) {
+    public void informationOfDriver() {
         if (this.driverLicense == true) {
-            System.out.println("Имя водителя легкового автомобиля - " + getName() + ", водительский стаж - " + this.getDrivingExperience() + " лет, имеет действующие права категории В");
+            System.out.println("Имя водителя автомобиля - " + getName() + ", водительский стаж - " + this.getDrivingExperience() + " лет, имеет действующие водительские права");
         } else {
             System.out.println("Водитель не может быть допущен к управлению автомобилем, т.к. нет водительских прав");
         }
-
     }
-    public void driverDrivingCars(Cars car) {
+    public void driverDriving() {
         if (this.driverLicense == true) {
-            System.out.println("Водитель - " + this.getName() + " управляет автомобилем " + car.getBrand() + " " + car.getModel() + " и будет участвовать в заезде");
-        }else{
+            System.out.println("Водитель - " + this.getName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
+        } else {
             System.out.println("Водитель легкового автомобиля - " + getName() + " не допущен к соревнованиям, т.к. отсутствуют или просрочены водительские права");
         }
     }
-    public void informationOfDriverTrucks(Trucks truck) {
-        if (this.driverLicense == true) {
-            System.out.println("Имя водителя грузового автомобиля - " + getName() + ", водительский стаж - " + getDrivingExperience() + " лет, имеет действующие права категории С");
-        }else{
-            System.out.println("Водитель не может быть допущен к управлению автомобилем, т.к. нет водительских прав");
-        }
-    }
-    public void driverDrivingTrucks(Trucks truck) {
-        if (this.driverLicense == true) {
-            System.out.println("Водитель - " + getName() + " управляет автомобилем " + truck.getBrand() + " " + truck.getModel() + " и будет участвовать в заезде");
-        }else{
-            System.out.println("Водитель грузового автомобиля - " + getName() + " не допущен к соревнованиям, т.к. отсутствуют или просрочены водительские права");
-        }
-    }
-    public void informationOfDriverBus(Bus bus) {
-        if (this.driverLicense == true) {
-            System.out.println("Имя водителя автобуса - " + getName() + ", водительский стаж - " + getDrivingExperience() + " лет, имеет действующие права категории D");
-        }else{
-            System.out.println("Водитель не может быть допущен к управлению автомобилем, т.к. нет водительских прав");
-        }
-    }
-    public void driverDrivingBus(Bus bus) {
-        if (this.driverLicense == true) {
-            System.out.println("Водитель - " + getName() + " управляет автобусом " + bus.getBrand() + " " + bus.getModel() + " и будет участвовать в заезде");
-        }else{
-            System.out.println("Водитель автобуса - " + getName() + " не допущен к соревнованиям, т.к. отсутствуют или просрочены водительские права");
-        }
-    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Driver)) return false;
         Driver<?> driver = (Driver<?>) o;
-        return driverLicense == driver.driverLicense && drivingExperience == driver.drivingExperience && name.equals(driver.name);
+        return driverLicense == driver.driverLicense && drivingExperience == driver.drivingExperience && name.equals(driver.name) && transport.equals(driver.transport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, driverLicense, drivingExperience);
+        return Objects.hash(name, driverLicense, drivingExperience, transport);
     }
 
     @Override
     public String toString() {
-        return "drivers.Driver{" +
+        return "Driver{" +
                 "name='" + name + '\'' +
                 ", driverLicense=" + driverLicense +
                 ", drivingExperience=" + drivingExperience +
+                ", transport=" + transport +
                 '}';
     }
 }

@@ -131,21 +131,24 @@ public class Main {
            System.out.println();
 
            System.out.println("Задание 4");
-           DriverB driverB = new DriverB("Пирожков Антон Сергеевич", true, 6);
+           DriverB driverB = new DriverB("Пирожков Антон Сергеевич", true, 6, car2);
            System.out.println(driverB.toString());
-           driverB.informationOfDriverCars(car1);
-           driverB.driverDrivingCars(car1);
+           driverB.informationOfDriver();
+           driverB.driverDriving();
            System.out.println();
 
-           DriverC driverC = new DriverC("Матроскин Петр Арсланович", true, 9);
+           DriverC driverC = new DriverC("Сватов Игорь Александрович", true,8, truck4);
            System.out.println(driverC.toString());
-           driverC.informationOfDriverTrucks(truck2);
-           driverC.driverDrivingTrucks(truck2);
+           driverC.informationOfDriver();
+           driverC.driverDriving();
            System.out.println();
 
-           DriverD driverD = new DriverD("Петросян Лаврентий Геннадьевич", true, 12);
+           DriverD driverD = new DriverD("Алимбеков Айдар Анварович", true, 10, bus1);
            System.out.println(driverD.toString());
-           driverD.informationOfDriverBus(bus3);
-           driverD.driverDrivingBus(bus3);
+           driverD.informationOfDriver();
+           driverD.driverDriving();
+
+
+
     }
 }
