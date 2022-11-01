@@ -32,7 +32,7 @@ public abstract class Driver <A extends PassengerCar> {
         }
     }
 
-    public A transport(String бренд, String модель, float объем_двигателя) {
+    public A transport(String brand, String model, float engineVolume) {
         return transport;
     }
 

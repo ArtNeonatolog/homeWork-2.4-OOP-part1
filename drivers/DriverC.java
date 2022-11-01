@@ -3,15 +3,9 @@ package drivers;
 import transport.PassengerCar;
 import transport.Truck;
 public class DriverC extends Driver {
-    private final Truck transport;
 
     public DriverC(String name, boolean driverLicense, int drivingExperience, PassengerCar transport) {
-        super(name, driverLicense, drivingExperience,transport);
-        if (transport != null) {
-            this.transport = (Truck) transport;
-        } else {
-            this.transport = (Truck) transport ("Камаз", "СХ56", 18.0f);
-        }
+        super(name, driverLicense, drivingExperience, (Truck) transport);
     }
     @Override
     public void startMoving() {
@@ -30,8 +24,7 @@ public class DriverC extends Driver {
     @Override
     public String toString() {
         return "DriverC{" +
-                "transport=" + transport +
-                ", driverLicense=" + driverLicense +
+                "driverLicense=" + driverLicense +
                 "} " + super.toString();
     }
 }

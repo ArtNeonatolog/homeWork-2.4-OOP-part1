@@ -4,16 +4,8 @@ import transport.Bus;
 import transport.PassengerCar;
 
 public class DriverD extends Driver {
-
-    private final Bus transport;
-
     public DriverD(String name, boolean driverLicense, int drivingExperience, PassengerCar transport) {
-        super(name, driverLicense, drivingExperience, transport);
-        if (transport != null) {
-            this.transport = (Bus) transport;
-        } else {
-            this.transport = (Bus) transport ("Икарус", "BH657", 10.0f);
-        }
+        super(name, driverLicense, drivingExperience, (Bus) transport);
     }
 
     @Override
@@ -33,8 +25,7 @@ public class DriverD extends Driver {
     @Override
     public String toString() {
         return "DriverD{" +
-                "transport=" + transport +
-                ", driverLicense=" + driverLicense +
+                "driverLicense=" + driverLicense +
                 "} " + super.toString();
     }
 }
